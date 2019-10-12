@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+//not used
+$black: rgb(23, 23, 23);
+$green: rgb(49, 73, 57);
+$white: rgb(194, 206, 207);
+$darkblue: rgb(2, 33, 65);
+$blue: rgb(29, 88, 146);
+
+:root {
+    --nightGradient: linear-gradient( 45deg, #000000, #434343);
+    --eveningGradient: linear-gradient( 90deg, #544a7d, #ffd452);
+    --dayGradient: linear-gradient( 45deg, #000046, #1CB5E0);
+    --morningGradient: linear-gradient( 45deg, #aa4b6b, #6b6b83,#3b8d99);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all ease-in-out 600ms;
+}
+
+body {
+    font-family: 'Raleway', sans-serif; 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background-size: 200%;
+    animation: background-image 50s infinite;
+}
+
+@keyframes background-image {
+    0% {background-position: left}
+    50% {background-position: right}
+    100% {background-position: left}
+  }
+
+.forecast-circle {
+    min-width:400px;
+    width: 30%;
+    background-color: black;
+    opacity: 0.3;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+}
+
+.forecast-circle:after {
+    content: '';
+    padding-bottom: 100%;
+    display: block;
+}
+
+.weather-wrap { //change background color depending on weather
+    position: absolute;
+    z-index: 7;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #434343; 
+    opacity: .5;
+}
+
+.location-section {
+    height: 20vh;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: default;
+    position: relative;
+    z-index: 15;
+   
+}
+
+.location-timezone {
+    margin-top: 10%;
+}
+
+
+.temperature-section {
+    text-align: center;
+    cursor: default;
+    z-index: 20;
+    
+ 
+    
+}
+
+
+.degree-section {
+    display: flex; 
+    align-items: center;
+    cursor: pointer;
+    margin-top: 10%;
+    span {
+        
+        margin-left: 10px;
+        font-size: 30px;
+        opacity: .6; 
+    }
+    h2{
+        font-size: 40px;
+    }
+   
+    
+}
+
+    
+.temperature-description-daily{
+    width: 40vh;
+    opacity: 0; 
+    
+}
+
+
+.icon:hover {
+    transform: scale(1.05);
+}
+
+.humidity-section,
+.wind-section  {
+    position: absolute;
+    top: 52%;
+    right: 37%;
+    opacity: 0;
+    z-index:20;
+}
+
+.wind-section{
+    top: 54%;
+}
+
+#snap {
+    cursor: pointer;
+    margin-bottom: 3%;;
+}
+
+.icon-move{
+    transform: translateY(-40px);
+    transition: all ease-in-out 500ms;
+
+}
+
+.badge {
+    position: absolute;
+    z-index: 20;
+    display: flex;
+    justify-items: center;
+    bottom: 5%;
+}
